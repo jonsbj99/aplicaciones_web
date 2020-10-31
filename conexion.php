@@ -31,7 +31,7 @@ function read($db, $sql_temp = null){
     $consulta = mysqli_query($db, $sql);
     $resultados = array();
 
-    echo "Numero de registro: " . mysqli_num_rows($consulta)."<br>";
+    //echo "Numero de registro: " . mysqli_num_rows($consulta)."<br>";
 
     while ($temp = mysqli_fetch_array($consulta)){
         $resultados[]=$temp;
