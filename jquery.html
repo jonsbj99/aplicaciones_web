@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+    <meta charset="utf-8"/>
+    <head>
+        <title> Ejemplo jQuery</title>
+        <script src = "jquery-3.5.1.js"> </script>
+    </head>
+    <body>
+        <button>Click</button>
+        <p id="test">Test</p>
+        <script>
+            $(document).ready(function()
+            {
+                $("button").click(function()
+                {
+                    $("#test").hide();
+
+                });
+            });
+        </script>
+    </body>
+</html>
