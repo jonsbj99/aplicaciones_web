@@ -1,8 +1,8 @@
 <?php
 
-include ("conexion.php");
+
 if(isset($_POST['enviar'])){
-    
+    include ("conexion.php");
 
     if (!isset($_POST['titulo']) && empty($_POST['titulo'])){
         die("Debe especificar en titulo");
