@@ -17,7 +17,7 @@ if(isset($_POST['enviar'])){
 
     if(create($db, $sql)){
         echo "<h2>Registro creado</h2>";
-        //exit();
+        
     }else{
         echo "<h2>El registro no se creo<h2>";
     }
