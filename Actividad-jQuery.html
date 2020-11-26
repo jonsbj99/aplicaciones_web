@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>jQuery</title>
+<style>
+.cambiaColor{
+height: 30px;
+font-size: 20px;
+font-weight: bold;
+border: 1px solid #000;
+cursor: default;
+}
+</style>
+</head>
+<body>
+<button id="boton">Haga clic aqui</button>
+<button id="cambiaColor">Cambia color</button>
+<a id="link" href="index.php">Inicio</a>
+<ul>
+<li class="cambiaColor">blue</li>
+<li class="cambiaColor">yellow</li>
+<li class="cambiaColor">red</li>
+</ul>
+<form>
+Nombre: <input type="text" name="nombre" >
+Apellido: <input type="text" name="apellido">
+<select name ="option">
+<option>1</option>
+<option>2</option>
+<option>3</option>
+<option>4</option>
+</select>
+<input type="submit" name="">
+</form>
+<p id="texto"></p>
+<script
+src="https://code.jquery.com/jquery-3.4.1.js"
+integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+crossorigin="anonymous"></script>
+<script>
+$(document).ready(function(){
+//alert("Bienvenido");
+});
+$("#boton").click(function(){
+alert("Bienvenido");
+});
+$("#cambiaColor").click(function(){
+$("body").css("background-color","green");
+});
+$("#link").click(function (e){
+e.preventDefault();
+var url = $(this).attr("href");
+alert(url);
+});
+$(".cambiaColor").click(function(){
+var color = $(this).text();
+
+$("body").css("background-color",color);
+});
+$("input[name='nombre']").change(function(){
+var nombre = $(this).val();
+$("#texto").text(nombre);
+});
+$("select").change(function(){
+var nombre = $(this).val();
+$("#texto").text(nombre);
+});
+$("form").submit(function(e){
+e.preventDefault();
+var datos = $(this).serialize();
+alert(datos);
+});
+</script>
+</body>
+</html>
