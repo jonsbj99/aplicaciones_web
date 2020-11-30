@@ -1,0 +1,85 @@
+
+<!DOCTYPE html> 2 <html> 
+<head> 
+   <meta charset="utf-8"> 
+   <title>Peticiones AJAX</title> 
+</head> 
+<body> 
+    <h1>Resultado</h1> 
+    ID: <input type="number" id="idnoticia"/> 
+    <div id="resultado"></div> 
+    <button id="btn">Leer datos</button> 
+    <h1>Nueva noticia</h1> 
+   
+    <form id="nuevo" method="post"> 
+    <p><input type="texto" name="titulo" placeholder="Titulo de la nota" required></p> 
+    <p><textarea name="nota" required></textarea></p> 
+    <p><input type="texto" name="categoria" placeholder="categoria de la  nota"></p> 
+    <p><input type="date" name="fecha" required></p> 
+    <input type="hidden" name="enviar" value="true" /> 
+    <p><input type="submit" name="enviar_" value="Crear"></p> 20 </form> 
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script> 22 <script> 
+    /* Fecha: 2020-11-27 */ 
+    function actualiza_registros(datos){ 
+    $.ajax({ 
+    url: "registros.php", 
+    method: "get", 
+    data: datos, 
+    success: function(data){ 
+    $("#resultado").empty(); 
+  
+    $(data).each(function(){ 
+    $("#resultado").append("<p>"+JSON.stringify(this)+"</p>"); 34 }); 
+    }, 
+    error: function(){ 
+    alert("El registro no existe"); 
+    } 
+    }); 
+  
+ /* 
+- 1 -
+ $.get("registros.php",function(data){ 
+ $("#resultado").empty(); 
+  
+ $(data).each(function(){ 
+ $("#resultado").append("<p>"+JSON.stringify(this)+"</p>"); 47 }); 
+ }) 
+ */ 
+    } 
+    $("#btn").click(function(){ 
+    var datos = null; 
+  
+    if ($("#idnoticia").val() !== ""){ 
+    var id = $("#idnoticia").val(); 
+    datos = {"id": id}; 
+    } 
+  
+    actualiza_registros(datos); 
+    }); 
+  
+    $(function(){ 
+    $("#nuevo").submit(function(e){ 
+    e.preventDefault(); 
+    var data = $(this).serialize(); 
+  
+    $.ajax({ 
+    url:"create.php", 
+    method: "post", 
+    data: data, 
+    success: function(){ 
+    actualiza_registros(); 
+    }, 
+    error: function(){ 
+    alert("Error al insertar el registro"); } 
+    }); 
+  
+ /*$.post("create.php", data, function(){ 
+ actualiza_registros(); 
+ }).fail(function(){ 
+ alert("Error al insertar el registro");});*/ 
+    }); 
+
+    });   
+</script>  
+</body> 
+</html> 
