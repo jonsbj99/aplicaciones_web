@@ -2,7 +2,7 @@
 header("Access-Control-Allow-Origin: *");
 header("Content-Type: application/json; charset=UTF-8");
 
- include ("conexion.php");
+ include ("conexion-conexion.php");
  $sql = null;
  $id = 0;
  if (isset($_GET["id"])){
