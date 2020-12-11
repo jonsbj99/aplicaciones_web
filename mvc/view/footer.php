@@ -2,7 +2,7 @@
                 <div class="col-xs-12">
                     <hr />
                     <footer class="text-center well">
-                        <p>Lunático-Soft</p>
+                        <p>Spec</p>
                     </footer>                
                 </div>    
             </div>

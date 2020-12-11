@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
 	<head>
-		<title>Lunático-Soft</title>
+		<title>Spec</title>
         
         <meta charset="utf-8" />
         
